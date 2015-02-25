@@ -5,29 +5,21 @@
 #include <iostream>
 #include <vector>
 #include <list>
+#include <iterator>
 
 using namespace std;
 
-/*template <typename T>
+template <typename T>
 bool palindrom(T container)
 {
 	T::iterator ti=container.end();
-	for(T::iterator it=container.begin();it!=container.end();it++, ti--)
-	{
-		if((*it)!=(*ti))
-		return false;
-	}
-	return true;
-}*/
-
-bool palindrom(vector<int> container)
-{
-	vector<int>::iterator ti=container.end();
-	for(vector<int>::iterator it=container.begin(); it!=container.end(); it++, ti--)
-	{
+	T::iterator it=container.begin();
+	ti--;
+	int j=(container.size()+1)/2;
+	//for(T::iterator it=container.begin();it!=container.end()&&ti!=container.begin();it++, ti--)
+	for(int i=0;i<j;i++, ti--, it++)
 		if((*it)!=(*ti))
 			return false;
-	}
 	return true;
 }
 
@@ -43,7 +35,7 @@ int _tmain(int argc, _TCHAR* argv[])
 	container2.push_back(6);
 	container2.push_back(7);
 	cout<<"Vector is palindrom: "<<palindrom(container1)<<endl;
-	cout<<"List is palindrom: ";//<<palindrom(container2)<<endl;
+	cout<<"List is palindrom: "<<palindrom(container2)<<endl;
 	system("PAUSE");
 	return 0;
 }
