@@ -17,7 +17,7 @@ bool palindrom(const T &container)
 	T::const_iterator ti=container.end();
 	T::const_iterator it=container.begin();
 	ti--;
-	for(it=container.begin();it!=container.end()&&ti!=container.begin();it++, ti--)
+	for(it=container.begin();it!=ti;it++, ti--)
 		if((*it)!=(*ti))
 			return false;
 	return true;
