@@ -12,6 +12,8 @@ using namespace std;
 template <typename T>
 bool palindrom(const T &container)
 {
+	if(container.empty())
+		return true;
 	T::const_iterator ti=container.end();
 	T::const_iterator it=container.begin();
 	ti--;
