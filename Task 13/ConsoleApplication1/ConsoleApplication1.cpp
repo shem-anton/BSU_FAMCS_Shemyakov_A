@@ -10,14 +10,12 @@
 using namespace std;
 
 template <typename T>
-bool palindrom(T container)
+bool palindrom(const T &container)
 {
-	T::iterator ti=container.end();
-	T::iterator it=container.begin();
+	T::const_iterator ti=container.end();
+	T::const_iterator it=container.begin();
 	ti--;
-	int j=(container.size()+1)/2;
-	//for(T::iterator it=container.begin();it!=container.end()&&ti!=container.begin();it++, ti--)
-	for(int i=0;i<j;i++, ti--, it++)
+	for(it=container.begin();it!=container.end()&&ti!=container.begin();it++, ti--)
 		if((*it)!=(*ti))
 			return false;
 	return true;
