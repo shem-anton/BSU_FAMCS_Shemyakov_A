@@ -181,3 +181,9 @@ UpgradeLog*.htm
 
 # Microsoft Fakes
 FakesAssemblies/
+Task 16/ConsoleApplication1/ConsoleApplication1/ConsoleApplication1.vcxproj.filters
+Task 15/ConsoleApplication1/ConsoleApplication1/ConsoleApplication1.vcxproj.filters
+Task 16/ConsoleApplication1/ConsoleApplication1/ConsoleApplication1.vcxproj
+Task 15/ConsoleApplication1/ConsoleApplication1/Unit1.h
+*.cpp
+Task 16/ConsoleApplication1/ConsoleApplication1.sln
