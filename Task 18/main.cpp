@@ -1,42 +1,34 @@
-#include <cstdlib>
 #include <iostream>
 
-using namespace std;
-
-int main(int argc, char *argv[])
+int main()
 {
-    int m, sum = 0;
-    cin>>m;
+    int m, sum = 0, two = 2;
+	bool result = 0;
+    std::cin>>m;
     _asm
     {
+	mov eax, m
+	mov edx, 0
+	div two
+	mov ecx, eax
         xor esi, esi
     cycle:
         inc esi
         mov eax, m
         mov edx, 0
         div esi
-		cmp edx, 0
+	cmp edx, 0
         jne nm
         add sum, esi
 	nm:
-		cmp esi, m
-        je en
         loop cycle
-	en:
-		sub sum, esi
 		mov eax, m
 		cmp sum, eax
-		je perfect
 		jne not_perfect
+		mov result, 1
+	not_perfect:
     }
-perfect:
-		{
-		cout << m <<" is perfect\n";
-		goto final;
-		}
-not_perfect:
-		cout << m <<" is not perfect\n";
-	final:
+	std::cout << result << std::endl;
 	system("PAUSE");
     return EXIT_SUCCESS;
 }
