@@ -4,10 +4,10 @@ using namespace std;
 
 int main()
 {
-	char st1[100], st2[100], temp[50]={};
-	int result, counter = 0;
-	cout << "Enter two strings\n";
-	cin >> st1 >> st2;
+	char st1[100]="ccat", st2[100]="concatenation", temp[50]={};
+	int result, counter = 0;//counter contains top of temp
+	//cout << "Enter two strings\n";
+	//cin >> st1 >> st2;
 	_asm
 	{
 		xor edx, edx
@@ -17,6 +17,7 @@ int main()
 		dec ebx
 
 		lea eax, st2
+
 		xor esi, esi
 st2length:
 		cmp [eax+esi], 0
@@ -32,6 +33,14 @@ cycle:
 		mov al, [ebx]
 		lea edi, temp
 		repnz scasb
+		dec edi
+
+		push eax
+		mov eax, [edi]
+		pop eax
+
+		cmp [edi], al
+		je cycle
 		cmp ecx, 0
 		jne cycle
 
@@ -56,6 +65,6 @@ cycle:
 endofline:
 		mov result, edx
 	}
-	cout << result << endl;
+	cout << temp << endl;
 	return 0;
 }
